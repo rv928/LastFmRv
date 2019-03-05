@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="W1b-mg-V4u" customClass="GroupHeaderView" customModule="LastFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RN-dr-syo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Hours (i)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOS-gX-1UR">
+                            <rect key="frame" x="5" y="5" width="365" height="33"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRe-81-gHI">
+                            <rect key="frame" x="5" y="43" width="365" height="1"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="O0W-ah-eNw"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="yRe-81-gHI" firstAttribute="leading" secondItem="5RN-dr-syo" secondAttribute="leading" constant="5" id="0cD-0n-4T7"/>
+                        <constraint firstItem="yRe-81-gHI" firstAttribute="top" secondItem="pOS-gX-1UR" secondAttribute="bottom" constant="5" id="1Pe-25-0LI"/>
+                        <constraint firstItem="pOS-gX-1UR" firstAttribute="top" secondItem="5RN-dr-syo" secondAttribute="top" constant="5" id="AAG-Ws-Faw"/>
+                        <constraint firstAttribute="trailing" secondItem="yRe-81-gHI" secondAttribute="trailing" constant="5" id="LaL-mz-jE0"/>
+                        <constraint firstAttribute="bottom" secondItem="yRe-81-gHI" secondAttribute="bottom" id="NJO-g5-TZe"/>
+                        <constraint firstAttribute="trailing" secondItem="pOS-gX-1UR" secondAttribute="trailing" constant="5" id="wXW-YL-5nQ"/>
+                        <constraint firstItem="pOS-gX-1UR" firstAttribute="leading" secondItem="5RN-dr-syo" secondAttribute="leading" constant="5" id="wat-Dp-e0Q"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5RN-dr-syo" secondAttribute="trailing" id="07D-L3-ahN"/>
+                <constraint firstAttribute="bottom" secondItem="5RN-dr-syo" secondAttribute="bottom" id="FYE-nb-5dp"/>
+                <constraint firstItem="5RN-dr-syo" firstAttribute="top" secondItem="W1b-mg-V4u" secondAttribute="top" id="e5s-u7-5Jq"/>
+                <constraint firstItem="5RN-dr-syo" firstAttribute="leading" secondItem="W1b-mg-V4u" secondAttribute="leading" id="qFl-HW-NiC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="mWe-e0-aw4"/>
+            <connections>
+                <outlet property="headerLabel" destination="pOS-gX-1UR" id="6f9-La-a6M"/>
+            </connections>
+            <point key="canvasLocation" x="-83.5" y="-342"/>
+        </view>
+    </objects>
+</document>
