@@ -8,10 +8,11 @@
 
 import UIKit
 
-let SEARCH_ALBUM_TEXT_COUNT = 6
+let SEARCH_ALBUM_TEXT_COUNT = 3
 
 struct AlbumListCellHeight {
     static let cellHeight = 100
+    static let sectionHeight = 44
 }
 
 class AlbumListViewController: UIViewController {
@@ -23,19 +24,47 @@ class AlbumListViewController: UIViewController {
     var pageIndex:Int = 1
     var isPaging : Bool? = false
     var groupListArray:Array<Group> = Array()
+    var albumArray:Array<Album> = Array()
+    var artistArray:Array<Artist> = Array()
+    var albumCount:Int =  0
+    var artistCount:Int =  0
+
+    
+    // MARK:- ViewLifeCycle Methods
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.registerNibs()
+      
+        setupUI()
     }
     
+    
+    // MARK:- UI Methods
+
+    
+    func setupUI() {
+        self.registerNibs()
+        self.setupNavigationBar()
+        self.isPaging = false
+        self.albumListTableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = SharedClass.sharedInstance.colorWithHexStringAndAlpha(UIConstant.appColor, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: SharedClass.sharedInstance.colorWithHexStringAndAlpha(UIConstant.navTextColor, alpha: 1.0)]
+        self.title = "Albums"
+    }
     
     func registerNibs() {
         let headerNib = UINib.init(nibName: TagIDConstant.nibs.GroupHeaderView, bundle: Bundle.main)
         albumListTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: TagIDConstant.nibs.GroupHeaderView)
         
-        let nib = UINib(nibName: TagIDConstant.cellIDs.GroupItemCell, bundle: nil)
-        albumListTableView.register(nib, forCellReuseIdentifier: TagIDConstant.cellIDs.GroupItemCell)
+        let nib1 = UINib(nibName: TagIDConstant.cellIDs.GroupItemCell, bundle: nil)
+        albumListTableView.register(nib1, forCellReuseIdentifier: TagIDConstant.cellIDs.GroupItemCell)
+        
+        let nib2 = UINib(nibName: TagIDConstant.cellIDs.ArtistListCell, bundle: nil)
+        albumListTableView.register(nib2, forCellReuseIdentifier: TagIDConstant.cellIDs.ArtistListCell)
        // albumListTableView.rowHeight = UITableView.automaticDimension
        // albumListTableView.estimatedRowHeight = CGFloat(ADDBookingSize.cellheight)
         albumListTableView.tableFooterView = UIView()
@@ -65,12 +94,27 @@ class AlbumListViewController: UIViewController {
                 if resultList == nil {
                     return
                 }
+                self.albumCount = Int(resultList!.results!.opensearchtotalResults!) ?? 0
+                
                 var albumDict:Dictionary<String,Any> = Dictionary()
-                albumDict[ResponseConstant.groupType] = GroupType.album.rawValue
-                albumDict[ResponseConstant.groupObject] = resultList?.results?.albummatches
-                let albumGroup:Group = Group(dictionary: albumDict)
-                self.groupListArray.append(albumGroup)
                 SharedClass.sharedInstance.hideActivityIndicatorFromTableFooter(table: self.albumListTableView)
+
+                if self.isPaging == true {
+                    self.albumArray = self.albumArray + resultList!.results!.albummatches!.album!
+                    for(index,_) in self.groupListArray.enumerated() {
+                        let currentGroup:Group = self.groupListArray[index]
+                        if currentGroup.groupType == GroupType.album.rawValue {
+                            currentGroup.groupObject = self.albumArray
+                        }
+                    }
+                }
+                else {
+                    albumDict[ResponseConstant.groupType] = GroupType.album.rawValue
+                    self.albumArray = resultList!.results!.albummatches!.album!
+                    albumDict[ResponseConstant.groupObject] = self.albumArray
+                    let albumGroup:Group = Group(dictionary: albumDict)
+                    self.groupListArray.append(albumGroup)
+                }
                 
                 self.albumListTableView.reloadData()
                 self.callWSToArtistList(searchString: searchString!)
@@ -116,14 +160,31 @@ class AlbumListViewController: UIViewController {
                 if resultList == nil {
                     return
                 }
-                var artistDict:Dictionary<String,Any> = Dictionary()
-                artistDict[ResponseConstant.groupType] = GroupType.artist.rawValue
-                artistDict[ResponseConstant.groupObject] = resultList?.results?.artistmatches
-                let artistGroup:Group = Group(dictionary: artistDict)
-                self.groupListArray.append(artistGroup)
+                self.artistCount = Int(resultList!.results!.opensearchtotalResults!) ?? 0
+
             SharedClass.sharedInstance.hideActivityIndicatorFromTableFooter(table: self.albumListTableView)
                 
-            self.albumListTableView.reloadData()
+                var artistDict:Dictionary<String,Any> = Dictionary()
+                SharedClass.sharedInstance.hideActivityIndicatorFromTableFooter(table: self.albumListTableView)
+                
+                if self.isPaging == true {
+                    self.artistArray = self.artistArray + resultList!.results!.artistmatches!.artist!
+                    for(index,_) in self.groupListArray.enumerated() {
+                        let currentGroup:Group = self.groupListArray[index]
+                        if currentGroup.groupType == GroupType.artist.rawValue {
+                            currentGroup.groupObject = self.artistArray
+                        }
+                    }
+                }
+                else {
+                    artistDict[ResponseConstant.groupType] = GroupType.artist.rawValue
+                    self.artistArray = resultList!.results!.artistmatches!.artist!
+                    artistDict[ResponseConstant.groupObject] = self.artistArray
+                    let albumGroup:Group = Group(dictionary: artistDict)
+                    self.groupListArray.append(albumGroup)
+                }
+                
+              self.albumListTableView.reloadData()
             }
         }, onError: { (apiError) in
             
@@ -168,9 +229,9 @@ extension AlbumListViewController:UITextFieldDelegate {
                 if updatedTextString.count == 0 || updatedTextString.count >= SEARCH_ALBUM_TEXT_COUNT {
                     self.isPaging = false
                     pageIndex = 1
-                   // dictNotificationList.removeAll()
-                   // self.albumListTableView.reloadData()
-                    self.callWSToAlbumList(searchString: updatedTextString)
+                   self.groupListArray.removeAll()
+                   self.albumListTableView.reloadData()
+                   self.callWSToAlbumList(searchString: updatedTextString)
                 }
             }
         }
@@ -179,7 +240,13 @@ extension AlbumListViewController:UITextFieldDelegate {
     
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        //        self.callWebService(searchText: "")
+        self.groupListArray.removeAll()
+        self.albumArray.removeAll()
+        self.artistArray.removeAll()
+        self.albumCount = 0
+        self.artistCount = 0
+        self.albumListTableView.reloadData()
+      //  self.callWSToAlbumList(searchString: updatedTextString)
         return true
     }
 }
@@ -188,6 +255,11 @@ extension AlbumListViewController:UITextFieldDelegate {
 // MARK:- UITableView Delegate Methods
 
 extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
        
@@ -206,12 +278,12 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
         let currentGroup:Group = self.groupListArray[section]
         
         if currentGroup.groupType == GroupType.album.rawValue {
-            let currentItemList:Albummatches = currentGroup.groupObject as! Albummatches
-            return currentItemList.album?.count ?? 0
+            let albumArray:Array<Album> = currentGroup.groupObject as! Array<Album>
+            return albumArray.count
         }
         else {
-            let currentItemList:Artistmatches = currentGroup.groupObject as! Artistmatches
-            return currentItemList.artist?.count ?? 0
+            let artistArray:Array<Artist> = currentGroup.groupObject as! Array<Artist>
+            return artistArray.count
         }
     }
     
@@ -230,36 +302,37 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       return 30
+       return CGFloat(AlbumListCellHeight.sectionHeight)
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
         return 0
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-       return 70
+       return CGFloat(AlbumListCellHeight.cellHeight)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.GroupItemCell, for: indexPath) as! GroupItemCell
-       
         let currentGroup:Group = self.groupListArray[indexPath.section]
         
         if currentGroup.groupType == GroupType.album.rawValue {
-            let currentItemList:Albummatches = currentGroup.groupObject as! Albummatches
-            cell.setItemDetails(currentAlbum: currentItemList.album?[indexPath.row], currentArtist: nil)
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.GroupItemCell, for: indexPath) as! GroupItemCell
+            let albumArray:Array<Album> = currentGroup.groupObject as! Array<Album>
+            cell.setItemDetails(currentAlbum:albumArray[indexPath.row])
+            cell.selectionStyle = .none
+            return cell
         }
         else {
-            let currentItemList:Artistmatches = currentGroup.groupObject as! Artistmatches
-            cell.setItemDetails(currentAlbum: nil, currentArtist: currentItemList.artist?[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.ArtistListCell, for: indexPath) as! ArtistListCell
+            let artistArray:Array<Artist> = currentGroup.groupObject as! Array<Artist>
+            cell.setArtistDetails(currentArtist: artistArray[indexPath.row])
+            cell.selectionStyle = .none
+            return cell
         }
-        cell.selectionStyle = .none
-        return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -267,4 +340,27 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     
+}
+
+
+extension AlbumListViewController:UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if self.groupListArray.count == 0 {
+            return
+        }
+        let contentOffset = scrollView.contentOffset.y;
+        let contentHeight = scrollView.contentSize.height;
+        let diffHeight = contentHeight - contentOffset;
+        let frameHeight = scrollView.bounds.size.height;
+        let pullHeight = Double(abs(diffHeight - frameHeight));
+        var offset:Int = 0
+        offset = Int(ceil(Double(albumCount+artistCount/RequestConstant.kPageSize)))
+        if pullHeight <= 1.0 && pageIndex <= offset {
+            print("load more trigger")
+            pageIndex = pageIndex + 1
+            isPaging = true
+            self.callWSToAlbumList(searchString: searchTextField.text)
+        }
+    }
 }

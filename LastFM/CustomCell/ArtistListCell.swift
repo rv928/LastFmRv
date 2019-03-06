@@ -1,18 +1,18 @@
 //
-//  GroupItemCell.swift
+//  ArtistListCell.swift
 //  LastFM
 //
-//  Created by Admin on 05/03/19.
+//  Created by Admin on 06/03/19.
 //  Copyright © 2019 Admin. All rights reserved.
 //
 
 import UIKit
 
-class GroupItemCell: UITableViewCell {
+class ArtistListCell: UITableViewCell {
 
-    @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
-    @IBOutlet weak var albumLinkTextView: UITextView!
+    @IBOutlet weak var listenerCountLabel: UILabel!
+    @IBOutlet weak var artistLinkTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,11 +26,11 @@ class GroupItemCell: UITableViewCell {
     }
     
     
-    func setItemDetails(currentAlbum:Album?) {
-        if currentAlbum != nil {
-            self.albumLabel.text = currentAlbum?.name
-            self.setAttributedTextColor(leadingText: "Artist : ", trailingText: currentAlbum?.artist)
-            self.albumLinkTextView.text = currentAlbum?.url
+    func setArtistDetails(currentArtist:Artist?) {
+        if currentArtist != nil {
+            self.artistLabel.text = currentArtist?.name
+            self.setAttributedTextColor(leadingText: "Listeners : ", trailingText: currentArtist?.listeners)
+            self.artistLinkTextView.text = currentArtist?.url
         }
     }
     
@@ -56,7 +56,7 @@ class GroupItemCell: UITableViewCell {
             combination.append(leadingString)
             combination.append(trailingString)
             
-            self.artistLabel.attributedText = combination
+            self.listenerCountLabel.attributedText = combination
         }
     }
     

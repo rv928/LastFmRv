@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,10 +19,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RN-dr-syo">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Hours (i)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOS-gX-1UR">
-                            <rect key="frame" x="5" y="5" width="365" height="33"/>
-                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOS-gX-1UR">
+                            <rect key="frame" x="10" y="0.0" width="355" height="43"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRe-81-gHI">
@@ -38,14 +33,15 @@
                             </constraints>
                         </imageView>
                     </subviews>
+                    <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="yRe-81-gHI" firstAttribute="leading" secondItem="5RN-dr-syo" secondAttribute="leading" constant="5" id="0cD-0n-4T7"/>
-                        <constraint firstItem="yRe-81-gHI" firstAttribute="top" secondItem="pOS-gX-1UR" secondAttribute="bottom" constant="5" id="1Pe-25-0LI"/>
-                        <constraint firstItem="pOS-gX-1UR" firstAttribute="top" secondItem="5RN-dr-syo" secondAttribute="top" constant="5" id="AAG-Ws-Faw"/>
+                        <constraint firstItem="yRe-81-gHI" firstAttribute="top" secondItem="pOS-gX-1UR" secondAttribute="bottom" id="1Pe-25-0LI"/>
+                        <constraint firstItem="pOS-gX-1UR" firstAttribute="top" secondItem="5RN-dr-syo" secondAttribute="top" id="AAG-Ws-Faw"/>
                         <constraint firstAttribute="trailing" secondItem="yRe-81-gHI" secondAttribute="trailing" constant="5" id="LaL-mz-jE0"/>
                         <constraint firstAttribute="bottom" secondItem="yRe-81-gHI" secondAttribute="bottom" id="NJO-g5-TZe"/>
-                        <constraint firstAttribute="trailing" secondItem="pOS-gX-1UR" secondAttribute="trailing" constant="5" id="wXW-YL-5nQ"/>
-                        <constraint firstItem="pOS-gX-1UR" firstAttribute="leading" secondItem="5RN-dr-syo" secondAttribute="leading" constant="5" id="wat-Dp-e0Q"/>
+                        <constraint firstAttribute="trailing" secondItem="pOS-gX-1UR" secondAttribute="trailing" constant="10" id="wXW-YL-5nQ"/>
+                        <constraint firstItem="pOS-gX-1UR" firstAttribute="leading" secondItem="5RN-dr-syo" secondAttribute="leading" constant="10" id="wat-Dp-e0Q"/>
                     </constraints>
                 </view>
             </subviews>
@@ -60,7 +56,7 @@
             <connections>
                 <outlet property="headerLabel" destination="pOS-gX-1UR" id="6f9-La-a6M"/>
             </connections>
-            <point key="canvasLocation" x="-83.5" y="-342"/>
+            <point key="canvasLocation" x="-497" y="-350"/>
         </view>
     </objects>
 </document>

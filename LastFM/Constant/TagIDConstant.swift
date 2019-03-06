@@ -18,7 +18,8 @@ class TagIDConstant  {
     }
 
     struct cellIDs {
-       static let GroupItemCell = "GroupItemCell"
+        static let GroupItemCell = "GroupItemCell"
+        static let ArtistListCell = "ArtistListCell"
     }
     
     struct nibs {
