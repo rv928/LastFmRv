@@ -98,8 +98,17 @@ class AlbumDetailViewController: UIViewController {
             self.title = objArtist?.name!
         }
         
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named:UIConstant.Images.backIcon), for: .normal)
+        button.addTarget(self, action: #selector(self.backClicked), for: .touchUpInside)
+        let leftBarButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = leftBarButton
     }
    
+    @objc func backClicked() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func registerNibs() {
         let nib3 = UINib(nibName: TagIDConstant.cellIDs.BannerCollectionViewCell, bundle: nil)
         bannerCollectioView.register(nib3, forCellWithReuseIdentifier: TagIDConstant.cellIDs.BannerCollectionViewCell)

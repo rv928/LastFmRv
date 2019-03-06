@@ -324,6 +324,7 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
             let albumArray:Array<Album> = currentGroup.groupObject as! Array<Album>
             cell.setAlbumDetails(currentAlbum:albumArray[indexPath.row])
             cell.selectionStyle = .none
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             return cell
         }
         else {
@@ -331,6 +332,7 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
             let artistArray:Array<Artist> = currentGroup.groupObject as! Array<Artist>
             cell.setArtistDetails(currentArtist: artistArray[indexPath.row])
             cell.selectionStyle = .none
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             return cell
         }
     }

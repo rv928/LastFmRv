@@ -23,6 +23,7 @@ class UIConstant  {
         static let noImageSmall = "no-img-small"
         static let noImageMedium = "no-img-medium"
         static let noImageLarge = "no-img-large"
+        static let backIcon = "icon-back"
     }
     
     struct Fonts {
