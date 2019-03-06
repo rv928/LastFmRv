@@ -60,12 +60,12 @@ class AlbumListViewController: UIViewController {
         let headerNib = UINib.init(nibName: TagIDConstant.nibs.GroupHeaderView, bundle: Bundle.main)
         albumListTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: TagIDConstant.nibs.GroupHeaderView)
         
-        let nib1 = UINib(nibName: TagIDConstant.cellIDs.GroupItemCell, bundle: nil)
-        albumListTableView.register(nib1, forCellReuseIdentifier: TagIDConstant.cellIDs.GroupItemCell)
+        let nib1 = UINib(nibName: TagIDConstant.cellIDs.AlbumListCell, bundle: nil)
+        albumListTableView.register(nib1, forCellReuseIdentifier: TagIDConstant.cellIDs.AlbumListCell)
         
         let nib2 = UINib(nibName: TagIDConstant.cellIDs.ArtistListCell, bundle: nil)
         albumListTableView.register(nib2, forCellReuseIdentifier: TagIDConstant.cellIDs.ArtistListCell)
-       // albumListTableView.rowHeight = UITableView.automaticDimension
+       //ev albumListTableView.rowHeight = UITableView.automaticDimension
        // albumListTableView.estimatedRowHeight = CGFloat(ADDBookingSize.cellheight)
         albumListTableView.tableFooterView = UIView()
     }
@@ -320,7 +320,7 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
         
         if currentGroup.groupType == GroupType.album.rawValue {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.GroupItemCell, for: indexPath) as! GroupItemCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.AlbumListCell, for: indexPath) as! AlbumListCell
             let albumArray:Array<Album> = currentGroup.groupObject as! Array<Album>
             cell.setItemDetails(currentAlbum:albumArray[indexPath.row])
             cell.selectionStyle = .none

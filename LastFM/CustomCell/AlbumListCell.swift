@@ -1,15 +1,15 @@
 //
-//  GroupItemCell.swift
+//  AlbumListCell.swift
 //  LastFM
 //
-//  Created by Admin on 05/03/19.
+//  Created by Admin on 06/03/19.
 //  Copyright © 2019 Admin. All rights reserved.
 //
 
 import UIKit
 
-class GroupItemCell: UITableViewCell {
-
+class AlbumListCell: UITableViewCell {
+    
     @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var albumLinkTextView: UITextView!
@@ -18,10 +18,10 @@ class GroupItemCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

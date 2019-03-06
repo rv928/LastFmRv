@@ -13,6 +13,8 @@
 		84C134D7222FA67300F122F1 /* UIImage+TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134D6222FA67300F122F1 /* UIImage+TintColor.swift */; };
 		84C134DA222FC3AC00F122F1 /* ArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134D8222FC3AC00F122F1 /* ArtistListCell.swift */; };
 		84C134DB222FC3AC00F122F1 /* ArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C134D9222FC3AC00F122F1 /* ArtistListCell.xib */; };
+		84C134DE222FCE9500F122F1 /* AlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134DC222FCE9500F122F1 /* AlbumListCell.swift */; };
+		84C134DF222FCE9500F122F1 /* AlbumListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C134DD222FCE9500F122F1 /* AlbumListCell.xib */; };
 		84DBB2EA222E549F002138B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB2E9222E549F002138B0 /* Assets.xcassets */; };
 		84DBB2ED222E549F002138B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB2EB222E549F002138B0 /* LaunchScreen.storyboard */; };
 		84DBB2F8222E549F002138B0 /* LastFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB2F7222E549F002138B0 /* LastFMTests.swift */; };
@@ -39,8 +41,6 @@
 		84DBB34D222EACF6002138B0 /* ArtistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB34C222EACF6002138B0 /* ArtistList.swift */; };
 		84DBB350222EB21E002138B0 /* GroupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB34F222EB21E002138B0 /* GroupHeaderView.swift */; };
 		84DBB352222EB22A002138B0 /* GroupHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB351222EB22A002138B0 /* GroupHeaderView.xib */; };
-		84DBB355222EB29A002138B0 /* GroupItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB353222EB29A002138B0 /* GroupItemCell.swift */; };
-		84DBB356222EB29A002138B0 /* GroupItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB354222EB29A002138B0 /* GroupItemCell.xib */; };
 		9F484A990A5A4C1B6FBB4D68 /* Pods_LastFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B8C51B30CD0D334D3A51C2 /* Pods_LastFMTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +72,8 @@
 		84C134D6222FA67300F122F1 /* UIImage+TintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TintColor.swift"; sourceTree = "<group>"; };
 		84C134D8222FC3AC00F122F1 /* ArtistListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListCell.swift; sourceTree = "<group>"; };
 		84C134D9222FC3AC00F122F1 /* ArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListCell.xib; sourceTree = "<group>"; };
+		84C134DC222FCE9500F122F1 /* AlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListCell.swift; sourceTree = "<group>"; };
+		84C134DD222FCE9500F122F1 /* AlbumListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumListCell.xib; sourceTree = "<group>"; };
 		84DBB2DF222E549D002138B0 /* LastFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DBB2E9222E549F002138B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84DBB2EC222E549F002138B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		84DBB34C222EACF6002138B0 /* ArtistList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistList.swift; sourceTree = "<group>"; };
 		84DBB34F222EB21E002138B0 /* GroupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHeaderView.swift; sourceTree = "<group>"; };
 		84DBB351222EB22A002138B0 /* GroupHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupHeaderView.xib; sourceTree = "<group>"; };
-		84DBB353222EB29A002138B0 /* GroupItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItemCell.swift; sourceTree = "<group>"; };
-		84DBB354222EB29A002138B0 /* GroupItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupItemCell.xib; sourceTree = "<group>"; };
 		BA645862BF4A300C34C89799 /* Pods-LastFMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LastFMUITests.release.xcconfig"; path = "Target Support Files/Pods-LastFMUITests/Pods-LastFMUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DE36C74956F798BF11A582B9 /* Pods_LastFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LastFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B8C51B30CD0D334D3A51C2 /* Pods_LastFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LastFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,8 +279,8 @@
 		84DBB315222E558F002138B0 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				84DBB353222EB29A002138B0 /* GroupItemCell.swift */,
-				84DBB354222EB29A002138B0 /* GroupItemCell.xib */,
+				84C134DC222FCE9500F122F1 /* AlbumListCell.swift */,
+				84C134DD222FCE9500F122F1 /* AlbumListCell.xib */,
 				84C134D8222FC3AC00F122F1 /* ArtistListCell.swift */,
 				84C134D9222FC3AC00F122F1 /* ArtistListCell.xib */,
 			);
@@ -495,10 +495,10 @@
 			files = (
 				84DBB2ED222E549F002138B0 /* LaunchScreen.storyboard in Resources */,
 				84DBB352222EB22A002138B0 /* GroupHeaderView.xib in Resources */,
+				84C134DF222FCE9500F122F1 /* AlbumListCell.xib in Resources */,
 				84C134DB222FC3AC00F122F1 /* ArtistListCell.xib in Resources */,
 				84DBB2EA222E549F002138B0 /* Assets.xcassets in Resources */,
 				84DBB322222E56D0002138B0 /* Album.storyboard in Resources */,
-				84DBB356222EB29A002138B0 /* GroupItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +632,7 @@
 				84C134D7222FA67300F122F1 /* UIImage+TintColor.swift in Sources */,
 				84DBB34B222EA87E002138B0 /* GroupList.swift in Sources */,
 				84DBB349222E949A002138B0 /* RequestConstant.swift in Sources */,
+				84C134DE222FCE9500F122F1 /* AlbumListCell.swift in Sources */,
 				84DBB335222E7BBF002138B0 /* LMAPIManager.swift in Sources */,
 				84DBB33C222E7D1E002138B0 /* SharedAlert.swift in Sources */,
 				84DBB34D222EACF6002138B0 /* ArtistList.swift in Sources */,
@@ -642,7 +643,6 @@
 				84DBB343222E9006002138B0 /* AlbumManager.swift in Sources */,
 				84DBB341222E8CA4002138B0 /* AlbumList.swift in Sources */,
 				84DBB33F222E7E30002138B0 /* UIConstant.swift in Sources */,
-				84DBB355222EB29A002138B0 /* GroupItemCell.swift in Sources */,
 				84C134D5222FA50500F122F1 /* SearchBorderTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

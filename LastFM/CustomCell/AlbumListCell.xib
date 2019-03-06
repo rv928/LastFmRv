@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumListCell" rowHeight="96" id="Dxf-ho-XEd" customClass="AlbumListCell" customModule="LastFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dxf-ho-XEd" id="5fI-7L-vdS">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="95.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqZ-4o-r6C">
+                        <rect key="frame" x="10" y="5" width="327" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="hQh-MO-KGT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzx-NY-eV4">
+                        <rect key="frame" x="10" y="34" width="327" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="tyf-Sp-ait"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Artist : New">
+                                <attributes>
+                                    <font key="NSFont" size="14" name="Helvetica"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="https://stackoverflow.com/questions/44365890/link-within-label-in-swift" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Pe-l5-1Z8">
+                        <rect key="frame" x="3" y="55" width="339" height="35.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="4Nk-as-fga"/>
+                        </connections>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5Pe-l5-1Z8" firstAttribute="top" secondItem="Pzx-NY-eV4" secondAttribute="bottom" id="B0V-1R-jQ5"/>
+                    <constraint firstItem="zqZ-4o-r6C" firstAttribute="top" secondItem="5fI-7L-vdS" secondAttribute="top" constant="5" id="J4S-nZ-OpD"/>
+                    <constraint firstAttribute="trailing" secondItem="zqZ-4o-r6C" secondAttribute="trailing" constant="10" id="ORZ-J6-u1v"/>
+                    <constraint firstItem="Pzx-NY-eV4" firstAttribute="top" secondItem="zqZ-4o-r6C" secondAttribute="bottom" id="R0F-qW-38x"/>
+                    <constraint firstAttribute="trailing" secondItem="Pzx-NY-eV4" secondAttribute="trailing" constant="10" id="YSY-bN-TfS"/>
+                    <constraint firstItem="5Pe-l5-1Z8" firstAttribute="leading" secondItem="5fI-7L-vdS" secondAttribute="leading" constant="3" id="ZVd-51-TRc"/>
+                    <constraint firstAttribute="trailing" secondItem="5Pe-l5-1Z8" secondAttribute="trailing" constant="5" id="lpF-qZ-KlK"/>
+                    <constraint firstAttribute="bottom" secondItem="5Pe-l5-1Z8" secondAttribute="bottom" constant="5" id="mEB-xv-XgP"/>
+                    <constraint firstItem="zqZ-4o-r6C" firstAttribute="leading" secondItem="5fI-7L-vdS" secondAttribute="leading" constant="10" id="nXz-Tv-3z2"/>
+                    <constraint firstItem="Pzx-NY-eV4" firstAttribute="leading" secondItem="5fI-7L-vdS" secondAttribute="leading" constant="10" id="wLK-t8-9mQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="lXP-CN-Rby"/>
+            <connections>
+                <outlet property="albumLabel" destination="zqZ-4o-r6C" id="W0e-zb-nkL"/>
+                <outlet property="albumLinkTextView" destination="5Pe-l5-1Z8" id="HhE-ca-xOX"/>
+                <outlet property="artistLabel" destination="Pzx-NY-eV4" id="hTu-L3-Bsx"/>
+            </connections>
+            <point key="canvasLocation" x="-23.199999999999999" y="149.32533733133434"/>
+        </tableViewCell>
+    </objects>
+</document>
