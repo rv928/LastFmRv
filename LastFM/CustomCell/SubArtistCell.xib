@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubArtistCell" rowHeight="97" id="gFc-4Q-K6M" customClass="ArtistListCell" customModule="LastFM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="97"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFc-4Q-K6M" id="iQL-bd-d81">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="96.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-yJ-V2C">
+                        <rect key="frame" x="94" y="5" width="243" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="mKS-vS-uM7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kej-cr-yoW">
+                        <rect key="frame" x="10" y="10" width="74" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="CL4-XU-kbG"/>
+                            <constraint firstAttribute="width" constant="74" id="dkz-iQ-ADU"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="https://stackoverflow.com/questions/44365890/link-within-label-in-swift" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BkD-uC-QJO">
+                        <rect key="frame" x="89" y="39" width="253" height="52.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Bfl-yJ-V2C" firstAttribute="leading" secondItem="kej-cr-yoW" secondAttribute="trailing" constant="10" id="Cye-5G-MaX"/>
+                    <constraint firstItem="kej-cr-yoW" firstAttribute="leading" secondItem="iQL-bd-d81" secondAttribute="leading" constant="10" id="FDY-Ko-DJq"/>
+                    <constraint firstAttribute="trailing" secondItem="Bfl-yJ-V2C" secondAttribute="trailing" constant="10" id="SAb-u7-Bg3"/>
+                    <constraint firstItem="Bfl-yJ-V2C" firstAttribute="top" secondItem="iQL-bd-d81" secondAttribute="top" constant="5" id="ZRH-me-Ode"/>
+                    <constraint firstItem="BkD-uC-QJO" firstAttribute="leading" secondItem="kej-cr-yoW" secondAttribute="trailing" constant="5" id="pSU-Jl-Tjj"/>
+                    <constraint firstItem="kej-cr-yoW" firstAttribute="top" secondItem="iQL-bd-d81" secondAttribute="top" constant="10" id="q5j-5W-LvK"/>
+                    <constraint firstItem="BkD-uC-QJO" firstAttribute="top" secondItem="Bfl-yJ-V2C" secondAttribute="bottom" constant="5" id="rAX-UK-EER"/>
+                    <constraint firstAttribute="trailing" secondItem="BkD-uC-QJO" secondAttribute="trailing" constant="5" id="rMb-Gb-aiQ"/>
+                    <constraint firstAttribute="bottom" secondItem="BkD-uC-QJO" secondAttribute="bottom" constant="5" id="xfI-0P-xL4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="3sX-d5-LU2"/>
+            <connections>
+                <outlet property="artistImageView" destination="kej-cr-yoW" id="CkJ-yr-MTe"/>
+                <outlet property="artistLabel" destination="Bfl-yJ-V2C" id="16A-Jo-mlD"/>
+                <outlet property="artistLinkTextView" destination="BkD-uC-QJO" id="cIQ-yd-lb6"/>
+            </connections>
+            <point key="canvasLocation" x="-180" y="154.27286356821591"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -15,6 +15,7 @@ let k_APIHost     = "http://ws.audioscrobbler.com/2.0/"
 
 let k_APIAlbumSearch = "?method=album.search"
 let k_APIArtistSearch = "?method=artist.search"
+let k_APIArtistInfo = "?method=artist.getinfo"
 
 let k_APIAuthKey     = "ad9c4f3897cc062810fa322c07a7d052"
 

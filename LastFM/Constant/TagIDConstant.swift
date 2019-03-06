@@ -21,6 +21,7 @@ class TagIDConstant  {
         static let AlbumListCell = "AlbumListCell"
         static let ArtistListCell = "ArtistListCell"
         static let BannerCollectionViewCell = "BannerCollectionViewCell"
+        static let SubArtistCell = "SubArtistCell"
     }
     
     struct nibs {

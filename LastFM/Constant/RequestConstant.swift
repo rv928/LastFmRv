@@ -17,4 +17,5 @@ class RequestConstant {
     static let kPageSize        =  20
     static let apiKey           = "api_key"
     static let jsonformat       = "format"
+    static let artistName       = "artist"
 }
