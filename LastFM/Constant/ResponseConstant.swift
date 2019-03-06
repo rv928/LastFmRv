@@ -1,7 +1,5 @@
 //
 //  ResponseConstant.swift
-//  CohesionIB
-//
 
 
 import Foundation
@@ -22,6 +20,13 @@ class ResponseConstant  {
 enum GroupType:Int {
     case album = 1
     case artist = 2
+}
+
+enum ImageSizeType:String {
+    case small = "small"
+    case medium = "medium"
+    case large = "large"
+    case extralarge = "extralarge"
 }
 
 //Global null check

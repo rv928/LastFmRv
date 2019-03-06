@@ -11,9 +11,10 @@ import UIKit
 class ArtistListCell: UITableViewCell {
 
     @IBOutlet weak var artistLabel: UILabel!
-    @IBOutlet weak var listenerCountLabel: UILabel!
+    @IBOutlet weak var listenerCountLabel: AttributedLabel!
     @IBOutlet weak var artistLinkTextView: UITextView!
-    
+    @IBOutlet weak var artistImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,34 +30,30 @@ class ArtistListCell: UITableViewCell {
     func setArtistDetails(currentArtist:Artist?) {
         if currentArtist != nil {
             self.artistLabel.text = currentArtist?.name
-            self.setAttributedTextColor(leadingText: "Listeners : ", trailingText: currentArtist?.listeners)
+            self.listenerCountLabel.setAttributedTextColor(leadingText: "Listeners : ", trailingText: currentArtist?.listeners)
             self.artistLinkTextView.text = currentArtist?.url
-        }
-    }
-    
-    func setAttributedTextColor(leadingText:String?,trailingText:String?) {
-        
-        if leadingText != nil && trailingText != nil {
-            
-            let normalColor:UIColor = SharedClass.sharedInstance.colorWithHexStringAndAlpha(UIConstant.appTextColor, alpha: 0.7)
-            
-            let highlightedColor:UIColor = SharedClass.sharedInstance.colorWithHexStringAndAlpha(UIConstant.appTextColor, alpha: 1.0)
-            
-            let attributesForLeading = [NSAttributedString.Key.font:UIConstant.Fonts.FONT_HELVETICA_REGULAR(14.0),
-                                        NSAttributedString.Key.foregroundColor:normalColor] as [NSAttributedString.Key : Any]
-            
-            let leadingString : NSMutableAttributedString = NSMutableAttributedString(string: leadingText!, attributes: attributesForLeading)
-            
-            let attributesForTrailing = [NSAttributedString.Key.font:UIConstant.Fonts.FONT_HELVETICA_REGULAR(14.0),
-                                         NSAttributedString.Key.foregroundColor:highlightedColor] as [NSAttributedString.Key : Any]
-            
-            let trailingString : NSMutableAttributedString = NSMutableAttributedString(string: trailingText!, attributes: attributesForTrailing)
-            
-            let combination = NSMutableAttributedString()
-            combination.append(leadingString)
-            combination.append(trailingString)
-            
-            self.listenerCountLabel.attributedText = combination
+            var currentImage:ArtistImage?
+
+            if currentArtist?.image?.count ?? 0 > 0 {
+                for(index,_) in currentArtist!.image!.enumerated() {
+                    let currentObj:ArtistImage = currentArtist!.image![index]
+                    if currentObj.size == ImageSizeType.small.rawValue {
+                        currentImage = currentObj
+                        break
+                    }
+                }
+                if currentImage != nil {
+                    let url = URL(string:currentImage?.text ?? "")
+                    artistImageView.kf.indicatorType = .activity
+                    artistImageView.kf.setImage(with: url)
+                }
+                else {
+                    imageView?.image = UIImage(named: UIConstant.Images.noImageSmall)
+                }
+            }
+            else {
+                imageView?.image = UIImage(named: UIConstant.Images.noImageSmall)
+            }
         }
     }
     

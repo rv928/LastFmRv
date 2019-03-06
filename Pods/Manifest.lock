@@ -1,12 +1,14 @@
 PODS:
   - Alamofire (4.8.0)
   - IQKeyboardManagerSwift (6.2.0)
+  - Kingfisher (5.0.1)
   - ReachabilitySwift (4.3.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
+  - Kingfisher (~> 5.0)
   - ReachabilitySwift
   - SVProgressHUD
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - IQKeyboardManagerSwift
+    - Kingfisher
     - ReachabilitySwift
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 323e656be170bbaede5b60dd1b2c0ccdbbade0eb
+PODFILE CHECKSUM: ff8d417b2681084ef41f29f40e57f9540ff42dbc
 
 COCOAPODS: 1.6.1

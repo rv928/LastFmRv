@@ -1,10 +1,7 @@
 //
 //  UIImage+TintColor.swift
-//  CohesionIB
 //
-//  Created by Ravi Vora on 13/09/18.
-//  Copyright © 2018 Ravi Vora. All rights reserved.
-//
+
 
 import Foundation
 import UIKit

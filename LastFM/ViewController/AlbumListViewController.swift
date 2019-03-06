@@ -11,7 +11,7 @@ import UIKit
 let SEARCH_ALBUM_TEXT_COUNT = 3
 
 struct AlbumListCellHeight {
-    static let cellHeight = 100
+    static let cellHeight = 110
     static let sectionHeight = 44
 }
 
@@ -322,7 +322,7 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.AlbumListCell, for: indexPath) as! AlbumListCell
             let albumArray:Array<Album> = currentGroup.groupObject as! Array<Album>
-            cell.setItemDetails(currentAlbum:albumArray[indexPath.row])
+            cell.setAlbumDetails(currentAlbum:albumArray[indexPath.row])
             cell.selectionStyle = .none
             return cell
         }
@@ -335,11 +335,21 @@ extension AlbumListViewController:UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let objAlbumDetailViewController: AlbumDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: TagIDConstant.storyBoardIDs.kAlbumDetailViewController) as! AlbumDetailViewController
+        let indexPath = IndexPath(row:indexPath.row, section:indexPath.section)
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        if cell is AlbumListCell {
+            print("album")
+            objAlbumDetailViewController.objAlbum = self.albumArray[indexPath.row]
+        }
+        else {
+             print("artist")
+            objAlbumDetailViewController.objArtist = self.artistArray[indexPath.row]
+        }
+        self.navigationController?.pushViewController(objAlbumDetailViewController, animated: true)
     }
-    
-    
 }
 
 

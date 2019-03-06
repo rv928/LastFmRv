@@ -15,6 +15,9 @@
 		84C134DB222FC3AC00F122F1 /* ArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C134D9222FC3AC00F122F1 /* ArtistListCell.xib */; };
 		84C134DE222FCE9500F122F1 /* AlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134DC222FCE9500F122F1 /* AlbumListCell.swift */; };
 		84C134DF222FCE9500F122F1 /* AlbumListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C134DD222FCE9500F122F1 /* AlbumListCell.xib */; };
+		84C134E2222FDA0D00F122F1 /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134E1222FDA0D00F122F1 /* AttributedLabel.swift */; };
+		84C134E5222FDFE500F122F1 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134E3222FDFE500F122F1 /* BannerCollectionViewCell.swift */; };
+		84C134E6222FDFE500F122F1 /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C134E4222FDFE500F122F1 /* BannerCollectionViewCell.xib */; };
 		84DBB2EA222E549F002138B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB2E9222E549F002138B0 /* Assets.xcassets */; };
 		84DBB2ED222E549F002138B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB2EB222E549F002138B0 /* LaunchScreen.storyboard */; };
 		84DBB2F8222E549F002138B0 /* LastFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB2F7222E549F002138B0 /* LastFMTests.swift */; };
@@ -74,6 +77,9 @@
 		84C134D9222FC3AC00F122F1 /* ArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListCell.xib; sourceTree = "<group>"; };
 		84C134DC222FCE9500F122F1 /* AlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListCell.swift; sourceTree = "<group>"; };
 		84C134DD222FCE9500F122F1 /* AlbumListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumListCell.xib; sourceTree = "<group>"; };
+		84C134E1222FDA0D00F122F1 /* AttributedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedLabel.swift; sourceTree = "<group>"; };
+		84C134E3222FDFE500F122F1 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		84C134E4222FDFE500F122F1 /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
 		84DBB2DF222E549D002138B0 /* LastFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DBB2E9222E549F002138B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84DBB2EC222E549F002138B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,6 +176,14 @@
 			path = SearchBorderTextField;
 			sourceTree = "<group>";
 		};
+		84C134E0222FD9FA00F122F1 /* AttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				84C134E1222FDA0D00F122F1 /* AttributedLabel.swift */,
+			);
+			path = AttributedLabel;
+			sourceTree = "<group>";
+		};
 		84DBB2D6222E549D002138B0 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +264,7 @@
 		84DBB312222E558E002138B0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				84C134E0222FD9FA00F122F1 /* AttributedLabel */,
 				84C134D3222FA50500F122F1 /* SearchBorderTextField */,
 			);
 			path = Utility;
@@ -283,6 +298,8 @@
 				84C134DD222FCE9500F122F1 /* AlbumListCell.xib */,
 				84C134D8222FC3AC00F122F1 /* ArtistListCell.swift */,
 				84C134D9222FC3AC00F122F1 /* ArtistListCell.xib */,
+				84C134E3222FDFE500F122F1 /* BannerCollectionViewCell.swift */,
+				84C134E4222FDFE500F122F1 /* BannerCollectionViewCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -498,6 +515,7 @@
 				84C134DF222FCE9500F122F1 /* AlbumListCell.xib in Resources */,
 				84C134DB222FC3AC00F122F1 /* ArtistListCell.xib in Resources */,
 				84DBB2EA222E549F002138B0 /* Assets.xcassets in Resources */,
+				84C134E6222FDFE500F122F1 /* BannerCollectionViewCell.xib in Resources */,
 				84DBB322222E56D0002138B0 /* Album.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +592,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-LastFM/Pods-LastFM-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
@@ -583,6 +602,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
@@ -625,6 +645,7 @@
 				84C134DA222FC3AC00F122F1 /* ArtistListCell.swift in Sources */,
 				84DBB32F222E7AE9002138B0 /* ErrorManager.swift in Sources */,
 				84DBB345222E9156002138B0 /* ResponseConstant.swift in Sources */,
+				84C134E2222FDA0D00F122F1 /* AttributedLabel.swift in Sources */,
 				84DBB31E222E56A7002138B0 /* AlbumListViewController.swift in Sources */,
 				84DBB347222E9477002138B0 /* String+Operation.swift in Sources */,
 				84DBB327222E667A002138B0 /* TagIDConstant.swift in Sources */,
@@ -637,6 +658,7 @@
 				84DBB33C222E7D1E002138B0 /* SharedAlert.swift in Sources */,
 				84DBB34D222EACF6002138B0 /* ArtistList.swift in Sources */,
 				84DBB333222E7B4B002138B0 /* MessageConstant.swift in Sources */,
+				84C134E5222FDFE500F122F1 /* BannerCollectionViewCell.swift in Sources */,
 				84DBB31B222E55FC002138B0 /* AppDelegate.swift in Sources */,
 				84DBB329222E6FCC002138B0 /* URLConstant.swift in Sources */,
 				84DBB320222E56C0002138B0 /* AlbumDetailViewController.swift in Sources */,

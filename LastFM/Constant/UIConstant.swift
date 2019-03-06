@@ -20,6 +20,9 @@ class UIConstant  {
     
     struct Images {
         static let searchIcon = "icon-search"
+        static let noImageSmall = "no-img-small"
+        static let noImageMedium = "no-img-medium"
+        static let noImageLarge = "no-img-large"
     }
     
     struct Fonts {

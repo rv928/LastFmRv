@@ -19,5 +19,6 @@ target 'LastFM' do
    pod 'SVProgressHUD'
     pod 'IQKeyboardManagerSwift'
     pod 'ReachabilitySwift'
-pod 'Alamofire'
+    pod 'Alamofire'
+    pod 'Kingfisher', '~> 5.0'
 end

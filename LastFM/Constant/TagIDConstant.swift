@@ -13,13 +13,14 @@ class TagIDConstant  {
     
         static let storyboard = UIStoryboard(name: "Album", bundle: nil)
         
-        static let kIden_LoginVC            = "LoginViewController"
-        
+        static let kAlbumListViewController   = "AlbumListViewController"
+        static let kAlbumDetailViewController = "AlbumDetailViewController"
     }
 
     struct cellIDs {
         static let AlbumListCell = "AlbumListCell"
         static let ArtistListCell = "ArtistListCell"
+        static let BannerCollectionViewCell = "BannerCollectionViewCell"
     }
     
     struct nibs {
