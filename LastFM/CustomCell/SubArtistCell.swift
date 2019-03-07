@@ -36,7 +36,7 @@ class SubArtistCell: UITableViewCell {
             if currentArtist?.image?.count ?? 0 > 0 {
                 for(index,_) in currentArtist!.image!.enumerated() {
                     let currentObj:ArtInfoImage = currentArtist!.image![index]
-                    if currentObj.size == ImageSizeType.small.rawValue {
+                    if currentObj.size == ImageSizeType.medium.rawValue {
                         currentImage = currentObj
                         break
                     }

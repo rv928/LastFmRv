@@ -37,7 +37,7 @@ class AlbumListCell: UITableViewCell {
             if currentAlbum?.image?.count ?? 0 > 0 {
                 for(index,_) in currentAlbum!.image!.enumerated() {
                     let currentObj:AlbumImage = currentAlbum!.image![index]
-                    if currentObj.size == ImageSizeType.small.rawValue {
+                    if currentObj.size == ImageSizeType.medium.rawValue {
                         currentImage = currentObj
                         break
                     }

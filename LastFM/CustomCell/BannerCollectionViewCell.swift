@@ -21,9 +21,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
 
     func setBannerCellDetails(currentImage:ArtInfoImage?) {
         var imageURL:String = ""
-        if currentImage is ArtInfoImage {
-            imageURL = (currentImage as! ArtInfoImage).text ?? ""
-        }
+        imageURL = (currentImage)?.text ?? ""
         let url = URL(string:imageURL)
         bannerImageView.kf.indicatorType = .activity
         bannerImageView.kf.setImage(with: url)

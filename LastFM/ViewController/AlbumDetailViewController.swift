@@ -43,8 +43,11 @@ class AlbumDetailViewController: UIViewController {
     //Bio View
     @IBOutlet weak var bioView: UIView!
     @IBOutlet weak var publishedDateLabel: AttributedLabel!
-    @IBOutlet weak var summaryValueLabel: UILabel!
-    
+    @IBOutlet weak var summaryValueTextView: UITextView!
+    @IBOutlet weak var contentValueTextView: UITextView!
+    @IBOutlet weak var summaryViewHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var contentViewHeightConst: NSLayoutConstraint!
+
     var objAlbum:Album?
     var objArtist:Artist?
     var albumbannerArray:Array<ArtInfoImage> = Array()
@@ -65,54 +68,6 @@ class AlbumDetailViewController: UIViewController {
     func setupUI() {
         self.registerNibs()
         self.setupNavigationBar()
-        /*
-        if self.objAlbum != nil {
-            self.subLabel.setAttributedTextColor(leadingText: "Artist : ", trailingText: objAlbum?.artist)
-            self.albumLinkTextView.text = objAlbum?.url
-           // albumbannerArray = self.objAlbum!.image!
-            var currentImage:AlbumImage?
-
-            if objAlbum?.image?.count ?? 0 > 0 {
-                for(index,_) in objAlbum!.image!.enumerated() {
-                    let currentObj:AlbumImage = objAlbum!.image![index]
-                    if currentObj.size == ImageSizeType.large.rawValue {
-                        currentImage = currentObj
-                        break
-                    }
-                }
-            }
-            
-            if currentImage != nil {
-                self.albumbannerArray.removeAll()
-                self.albumbannerArray.append(currentImage!)
-            }
-        }
-        else {
-            self.subLabel.setAttributedTextColor(leadingText: "Listeners : ", trailingText: objArtist?.listeners)
-            self.albumLinkTextView.text = objArtist?.url
-           // albumbannerArray = self.objArtist!.image!
-            var currentImage:ArtistImage?
-
-            if objArtist?.image?.count ?? 0 > 0 {
-                for(index,_) in objArtist!.image!.enumerated() {
-                    let currentObj:ArtistImage = objArtist!.image![index]
-                    if currentObj.size == ImageSizeType.large.rawValue {
-                        currentImage = currentObj
-                        break
-                    }
-                }
-            }
-            if currentImage != nil {
-                self.albumbannerArray.removeAll()
-                self.albumbannerArray.append(currentImage!)
-            }
-        }
-
-        self.pageControl.numberOfPages = albumbannerArray.count
-        self.pageControl.currentPage = 0
-        
-        self.bannerCollectioView.reloadData()
-        */
         self.setUpArtistTagViewUI()
         if self.objAlbum != nil {
             self.callWSToArtistInfo(artistName: self.objAlbum?.artist)
@@ -178,6 +133,7 @@ class AlbumDetailViewController: UIViewController {
                 self.setUpArtistbasicInfo()
                 self.fillSimilarArtists()
                 self.fillArtistTags()
+                self.fillBioInfoView()
             }
         }, onError: { (apiError) in
             
@@ -262,10 +218,19 @@ class AlbumDetailViewController: UIViewController {
         }
         else {
             tagMainView.isHidden = false
-            self.tagViewHeightConst.constant = artistTagView.intrinsicContentSize.height + 50.0
+            self.tagViewHeightConst.constant = artistTagView.intrinsicContentSize.height + 70.0
         }
     }
     
+    
+    func fillBioInfoView() {
+        self.publishedDateLabel.setAttributedTextColor(leadingText: "Published : ", trailingText: self.artistInfo!.artist!.bio!.published!)
+        self.summaryValueTextView.attributedText = (self.artistInfo!.artist!.bio!.summary!).html2AttributedString
+        self.summaryViewHeightConst.constant = self.summaryValueTextView.contentSize.height
+        
+        self.contentValueTextView.attributedText = (self.artistInfo!.artist!.bio!.content!).html2AttributedString
+        self.contentViewHeightConst.constant = self.contentValueTextView.contentSize.height
+    }
 }
 
 
@@ -321,7 +286,6 @@ extension AlbumDetailViewController:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TagIDConstant.cellIDs.SubArtistCell, for: indexPath) as! SubArtistCell
         cell.setArtistDetails(currentArtist: self.similarArtistArray[indexPath.row])
         cell.selectionStyle = .none
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         return cell
     }
 }
@@ -331,5 +295,14 @@ extension AlbumDetailViewController:TagListViewDelegate {
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
         print(title)
+        print(tagView.title)
+    }
+}
+
+
+extension AlbumDetailViewController:UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        UIApplication.shared.open(URL, options: [:])
+        return false
     }
 }
