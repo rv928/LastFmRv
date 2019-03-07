@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubArtistCell" rowHeight="97" id="gFc-4Q-K6M" customClass="ArtistListCell" customModule="LastFM" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubArtistCell" rowHeight="97" id="gFc-4Q-K6M" customClass="SubArtistCell" customModule="LastFM" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="347" height="97"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFc-4Q-K6M" id="iQL-bd-d81">
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-yJ-V2C">
-                        <rect key="frame" x="94" y="5" width="243" height="29"/>
+                        <rect key="frame" x="94" y="10" width="243" height="29"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="29" id="mKS-vS-uM7"/>
                         </constraints>
@@ -47,10 +47,10 @@
                     <constraint firstItem="Bfl-yJ-V2C" firstAttribute="leading" secondItem="kej-cr-yoW" secondAttribute="trailing" constant="10" id="Cye-5G-MaX"/>
                     <constraint firstItem="kej-cr-yoW" firstAttribute="leading" secondItem="iQL-bd-d81" secondAttribute="leading" constant="10" id="FDY-Ko-DJq"/>
                     <constraint firstAttribute="trailing" secondItem="Bfl-yJ-V2C" secondAttribute="trailing" constant="10" id="SAb-u7-Bg3"/>
-                    <constraint firstItem="Bfl-yJ-V2C" firstAttribute="top" secondItem="iQL-bd-d81" secondAttribute="top" constant="5" id="ZRH-me-Ode"/>
+                    <constraint firstItem="Bfl-yJ-V2C" firstAttribute="top" secondItem="iQL-bd-d81" secondAttribute="top" constant="10" id="ZRH-me-Ode"/>
                     <constraint firstItem="BkD-uC-QJO" firstAttribute="leading" secondItem="kej-cr-yoW" secondAttribute="trailing" constant="5" id="pSU-Jl-Tjj"/>
                     <constraint firstItem="kej-cr-yoW" firstAttribute="top" secondItem="iQL-bd-d81" secondAttribute="top" constant="10" id="q5j-5W-LvK"/>
-                    <constraint firstItem="BkD-uC-QJO" firstAttribute="top" secondItem="Bfl-yJ-V2C" secondAttribute="bottom" constant="5" id="rAX-UK-EER"/>
+                    <constraint firstItem="BkD-uC-QJO" firstAttribute="top" secondItem="Bfl-yJ-V2C" secondAttribute="bottom" id="rAX-UK-EER"/>
                     <constraint firstAttribute="trailing" secondItem="BkD-uC-QJO" secondAttribute="trailing" constant="5" id="rMb-Gb-aiQ"/>
                     <constraint firstAttribute="bottom" secondItem="BkD-uC-QJO" secondAttribute="bottom" constant="5" id="xfI-0P-xL4"/>
                 </constraints>

@@ -22,7 +22,6 @@
 		84C134EF223002E300F122F1 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134EB223002E300F122F1 /* CloseButton.swift */; };
 		84C134F0223002E300F122F1 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134EC223002E300F122F1 /* TagView.swift */; };
 		84C134F1223002E300F122F1 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134ED223002E300F122F1 /* TagListView.swift */; };
-		84C134F2223002E300F122F1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C134EE223002E300F122F1 /* Info.plist */; };
 		84C134F922300C2500F122F1 /* SubArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C134F722300C2500F122F1 /* SubArtistCell.swift */; };
 		84C134FA22300C2500F122F1 /* SubArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C134F822300C2500F122F1 /* SubArtistCell.xib */; };
 		84DBB2EA222E549F002138B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB2E9222E549F002138B0 /* Assets.xcassets */; };
@@ -541,7 +540,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C134F2223002E300F122F1 /* Info.plist in Resources */,
 				84DBB2ED222E549F002138B0 /* LaunchScreen.storyboard in Resources */,
 				84DBB352222EB22A002138B0 /* GroupHeaderView.xib in Resources */,
 				84C134DF222FCE9500F122F1 /* AlbumListCell.xib in Resources */,

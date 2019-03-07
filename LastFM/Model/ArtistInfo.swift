@@ -104,7 +104,7 @@ struct Stats : Codable {
 
 
 struct Similar : Codable {
-    let artist : [Artist]?
+    let artist : [ArtistI]?
     
     enum CodingKeys: String, CodingKey {
         
@@ -113,7 +113,7 @@ struct Similar : Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        artist = try values.decodeIfPresent([Artist].self, forKey: .artist)
+        artist = try values.decodeIfPresent([ArtistI].self, forKey: .artist)
     }
     
 }

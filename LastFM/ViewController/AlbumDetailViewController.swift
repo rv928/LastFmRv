@@ -8,8 +8,9 @@
 
 import UIKit
 
-struct BannerCollectionCellHeight {
+struct ArtistInfoCellHeight {
     static let cellHeight = 260
+    static let similarCellHeight = 90
 }
 
 class AlbumDetailViewController: UIViewController {
@@ -36,7 +37,7 @@ class AlbumDetailViewController: UIViewController {
     
     //TagView
     @IBOutlet weak var tagMainView: UIView!
-    @IBOutlet weak var tagView: TagListView!
+    @IBOutlet weak var artistTagView: TagListView!
     @IBOutlet weak var tagViewHeightConst: NSLayoutConstraint!
     
     //Bio View
@@ -48,7 +49,8 @@ class AlbumDetailViewController: UIViewController {
     var objArtist:Artist?
     var albumbannerArray:Array<ArtInfoImage> = Array()
     var artistInfo:ArtistInfo?
-    var similarArtistArray:Array<Artist> = Array()
+    var similarArtistArray:Array<ArtistI> = Array()
+    var tagListArray:Array<Tag> = Array()
     
     // MARK:- ViewLifeCycle Methods
     
@@ -111,7 +113,7 @@ class AlbumDetailViewController: UIViewController {
         
         self.bannerCollectioView.reloadData()
         */
-        
+        self.setUpArtistTagViewUI()
         if self.objAlbum != nil {
             self.callWSToArtistInfo(artistName: self.objAlbum?.artist)
         }
@@ -145,6 +147,9 @@ class AlbumDetailViewController: UIViewController {
     func registerNibs() {
         let nib3 = UINib(nibName: TagIDConstant.cellIDs.BannerCollectionViewCell, bundle: nil)
         bannerCollectioView.register(nib3, forCellWithReuseIdentifier: TagIDConstant.cellIDs.BannerCollectionViewCell)
+        
+        let nibSimilar = UINib(nibName: TagIDConstant.cellIDs.SubArtistCell, bundle: nil)
+        similarTableView.register(nibSimilar, forCellReuseIdentifier: TagIDConstant.cellIDs.SubArtistCell)
     }
     
     //********************
@@ -161,12 +166,18 @@ class AlbumDetailViewController: UIViewController {
         AlbumManager.album.getArtistInfo(vc: self, paramDict: inputDict, onSuccess: { [] (result) in
             
             DispatchQueue.main.async { [] in
+                
+                SharedClass.sharedInstance.showProgressHUD(false)
+
                 if result == nil {
                     return
                 }
+                
                 self.artistInfo = result
                 //print(self.artistInfo?.artist?.bio)
                 self.setUpArtistbasicInfo()
+                self.fillSimilarArtists()
+                self.fillArtistTags()
             }
         }, onError: { (apiError) in
             
@@ -217,8 +228,44 @@ class AlbumDetailViewController: UIViewController {
     
     
     func fillSimilarArtists() {
-       // self.similarArtistArray = self.artistInfo?.artist?.similar?.artist
+        self.similarArtistArray = self.artistInfo!.artist!.similar!.artist!
+        self.similarTableView.reloadData()
+        self.similarViewHeightConst.constant = self.similarTableView.contentSize.height
     }
+    
+    func fillArtistTags() {
+        self.tagListArray = self.artistInfo!.artist!.tags!.tag!
+        self.calculateArtistTagViewHeight()
+    }
+    
+    func setUpArtistTagViewUI() {
+        artistTagView.textFont = UIConstant.Fonts.FONT_HELVETICA_REGULAR(14.0)
+        artistTagView.shadowRadius = 0
+        artistTagView.shadowOpacity = 0
+        artistTagView.cornerRadius = 5
+        artistTagView.tagBackgroundColor = SharedClass.sharedInstance.colorWithHexStringAndAlpha(UIConstant.tagBgColor, alpha: 1.0)
+        artistTagView.borderColor = SharedClass.sharedInstance.colorWithHexStringAndAlpha(UIConstant.tagTextColor, alpha: 1.0)
+        artistTagView.enableRemoveButton = false
+        artistTagView.delegate = self
+    }
+    
+    func calculateArtistTagViewHeight() {
+        
+        for (index,_) in self.tagListArray.enumerated() {
+            let currentTag:Tag = self.tagListArray[index]
+            self.artistTagView.addTag(currentTag.name!)
+        }
+        
+        if self.tagListArray.count == 0 {
+            self.tagViewHeightConst.constant = 0
+            tagMainView.isHidden = true
+        }
+        else {
+            tagMainView.isHidden = false
+            self.tagViewHeightConst.constant = artistTagView.intrinsicContentSize.height + 50.0
+        }
+    }
+    
 }
 
 
@@ -244,31 +291,30 @@ extension AlbumDetailViewController:UICollectionViewDataSource,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width, height: CGFloat(BannerCollectionCellHeight.cellHeight))
+        return CGSize(width: collectionView.bounds.size.width, height: CGFloat(ArtistInfoCellHeight.cellHeight))
     }
 }
 
 
 // MARK:- UITableView Delegate Methods
-/*
+
 extension AlbumDetailViewController:UITableViewDelegate,UITableViewDataSource {
    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.similarArtistArray.count
-    }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-       return 1
+        return 1
     }
-   
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.similarArtistArray.count
+    }
+  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return CGFloat(AlbumListCellHeight.cellHeight)
+        return CGFloat(ArtistInfoCellHeight.similarCellHeight)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -280,4 +326,10 @@ extension AlbumDetailViewController:UITableViewDelegate,UITableViewDataSource {
     }
 }
 
-*/
+
+extension AlbumDetailViewController:TagListViewDelegate {
+    
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        print(title)
+    }
+}

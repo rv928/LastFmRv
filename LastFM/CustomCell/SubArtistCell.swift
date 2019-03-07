@@ -26,16 +26,16 @@ class SubArtistCell: UITableViewCell {
     }
     
     
-    func setArtistDetails(currentArtist:Artist?) {
-        /*
+    func setArtistDetails(currentArtist:ArtistI?) {
+        
         if currentArtist != nil {
             self.artistLabel.text = currentArtist?.name
             self.artistLinkTextView.text = currentArtist?.url
-            var currentImage:ArtistImage?
+            var currentImage:ArtInfoImage?
             
             if currentArtist?.image?.count ?? 0 > 0 {
                 for(index,_) in currentArtist!.image!.enumerated() {
-                    let currentObj:ArtistImage = currentArtist!.image![index]
+                    let currentObj:ArtInfoImage = currentArtist!.image![index]
                     if currentObj.size == ImageSizeType.small.rawValue {
                         currentImage = currentObj
                         break
@@ -54,7 +54,7 @@ class SubArtistCell: UITableViewCell {
                 imageView?.image = UIImage(named: UIConstant.Images.noImageSmall)
             }
         }
-        */
+        
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
