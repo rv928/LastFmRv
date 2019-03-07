@@ -50,6 +50,7 @@
 		84DBB34D222EACF6002138B0 /* ArtistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB34C222EACF6002138B0 /* ArtistList.swift */; };
 		84DBB350222EB21E002138B0 /* GroupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB34F222EB21E002138B0 /* GroupHeaderView.swift */; };
 		84DBB352222EB22A002138B0 /* GroupHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB351222EB22A002138B0 /* GroupHeaderView.xib */; };
+		84EF2A4A2231405300DC1F05 /* AlbumListViewControllerTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF2A492231405300DC1F05 /* AlbumListViewControllerTestCases.swift */; };
 		9F484A990A5A4C1B6FBB4D68 /* Pods_LastFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B8C51B30CD0D334D3A51C2 /* Pods_LastFMTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		84DBB34C222EACF6002138B0 /* ArtistList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistList.swift; sourceTree = "<group>"; };
 		84DBB34F222EB21E002138B0 /* GroupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHeaderView.swift; sourceTree = "<group>"; };
 		84DBB351222EB22A002138B0 /* GroupHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupHeaderView.xib; sourceTree = "<group>"; };
+		84EF2A492231405300DC1F05 /* AlbumListViewControllerTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewControllerTestCases.swift; sourceTree = "<group>"; };
 		BA645862BF4A300C34C89799 /* Pods-LastFMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LastFMUITests.release.xcconfig"; path = "Target Support Files/Pods-LastFMUITests/Pods-LastFMUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DE36C74956F798BF11A582B9 /* Pods_LastFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LastFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B8C51B30CD0D334D3A51C2 /* Pods_LastFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LastFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				84DBB2F7222E549F002138B0 /* LastFMTests.swift */,
+				84EF2A492231405300DC1F05 /* AlbumListViewControllerTestCases.swift */,
 				84DBB2F9222E549F002138B0 /* Info.plist */,
 			);
 			path = LastFMTests;
@@ -709,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF2A4A2231405300DC1F05 /* AlbumListViewControllerTestCases.swift in Sources */,
 				84DBB2F8222E549F002138B0 /* LastFMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

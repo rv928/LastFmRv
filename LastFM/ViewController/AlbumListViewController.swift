@@ -48,6 +48,7 @@ class AlbumListViewController: UIViewController {
         self.setupNavigationBar()
         self.isPaging = false
         self.albumListTableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.albumListTableView.accessibilityIdentifier = "table--albumListTableView"
     }
     
     func setupNavigationBar() {

@@ -16,11 +16,11 @@ class AlbumManager {
     
     
     // MARK:- get Album List
-    func getAlbumList(vc:UIViewController?,paramDict:Dictionary<String,Any>,onSuccess: ((AlbumResultList?) -> Void)? = nil, onError: ((LMAPIError) -> Void)? = nil) {
+    func getAlbumList(vc:UIViewController?,paramDict:Dictionary<String,Any>?,onSuccess: ((AlbumResultList?) -> Void)? = nil, onError: ((LMAPIError) -> Void)? = nil) {
         
         //http://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=ad9c4f3897cc062810fa322c07a7d052&format=json
         var finalDict:Dictionary<String,Any> = Dictionary()
-        finalDict = paramDict
+        finalDict = paramDict!
         finalDict[RequestConstant.apiKey] = k_APIAuthKey
         finalDict[RequestConstant.jsonformat] = "json"
         let url = String(format: "%@%@", k_APIHost,k_APIAlbumSearch)
@@ -77,12 +77,12 @@ class AlbumManager {
     
     // MARK:- get Artist List
     
-    func getArtistList(vc:UIViewController?,paramDict:Dictionary<String,Any>,onSuccess: ((ArtistResultList?) -> Void)? = nil, onError: ((LMAPIError) -> Void)? = nil) {
+    func getArtistList(vc:UIViewController?,paramDict:Dictionary<String,Any>?,onSuccess: ((ArtistResultList?) -> Void)? = nil, onError: ((LMAPIError) -> Void)? = nil) {
         
         //http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=believe&api_key=ad9c4f3897cc062810fa322c07a7d052&format=json
         
         var finalDict:Dictionary<String,Any> = Dictionary()
-        finalDict = paramDict
+        finalDict = paramDict!
         finalDict[RequestConstant.apiKey] = k_APIAuthKey
         finalDict[RequestConstant.jsonformat] = "json"
         let url = String(format: "%@%@", k_APIHost,k_APIArtistSearch)
