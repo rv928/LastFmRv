@@ -247,7 +247,6 @@
 				84DBB316222E558F002138B0 /* Model */,
 				84DBB311222E558E002138B0 /* Plist */,
 				84DBB312222E558E002138B0 /* Utility */,
-				84DBB313222E558E002138B0 /* ViewModel */,
 				84DBB31C222E566D002138B0 /* WebServiceManager */,
 				84DBB2E9222E549F002138B0 /* Assets.xcassets */,
 				84DBB2EB222E549F002138B0 /* LaunchScreen.storyboard */,
@@ -298,13 +297,6 @@
 				84C134D3222FA50500F122F1 /* SearchBorderTextField */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		84DBB313222E558E002138B0 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		84DBB314222E558F002138B0 /* Constant */ = {

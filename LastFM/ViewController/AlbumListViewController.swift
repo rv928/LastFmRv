@@ -144,7 +144,6 @@ class AlbumListViewController: UIViewController {
     
     func callWSToArtistList(searchString:String?) {
         
-       // SharedClass.sharedInstance.cancelAllRequest()
          SharedClass.sharedInstance.setActivityIndicatorToTableFooter(table: self.albumListTableView)
         
         var inputDict:Dictionary<String,Any> = Dictionary()
@@ -247,7 +246,6 @@ extension AlbumListViewController:UITextFieldDelegate {
         self.albumCount = 0
         self.artistCount = 0
         self.albumListTableView.reloadData()
-      //  self.callWSToAlbumList(searchString: updatedTextString)
         return true
     }
 }
