@@ -79,6 +79,16 @@ class AlbumListViewControllerTestCases: XCTestCase {
         XCTAssertNoThrow(AlbumManager.album.getArtistList(vc: nil, paramDict: nil))
     }
     
+    func testForAlbumDetails() {
+        let cell:AlbumListCell = tableView.dequeueReusableCell(withIdentifier: "AlbumListCell") as! AlbumListCell
+        XCTAssertNoThrow(cell.setAlbumDetails(currentAlbum: nil))
+    }
+    
+    func testForArtistDetails() {
+        let cell:ArtistListCell = tableView.dequeueReusableCell(withIdentifier: "ArtistListCell") as! ArtistListCell
+        XCTAssertNoThrow(cell.setArtistDetails(currentArtist: nil))
+    }
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }

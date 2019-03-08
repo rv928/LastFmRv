@@ -154,6 +154,7 @@ class AlbumDetailViewController: UIViewController {
         })
     }
     
+    //**********To fill up artist basic info *************
     
     func setUpArtistbasicInfo() {
         self.subLabel.setAttributedTextColor(leadingText: "Artist : ", trailingText: self.artistInfo?.artist?.name)
@@ -183,19 +184,26 @@ class AlbumDetailViewController: UIViewController {
     }
     
     
+    //**********To Show Similar Artist TableView *************
+
+    
     func fillSimilarArtists() {
         self.similarArtistArray = self.artistInfo!.artist!.similar!.artist!
         self.similarTableView.reloadData()
         self.similarViewHeightConst.constant = self.similarTableView.contentSize.height
     }
     
+    //**********To Show Artist Tags *************
+    
     func fillArtistTags() {
         self.tagListArray = self.artistInfo!.artist!.tags!.tag!
         self.calculateArtistTagViewHeight()
     }
     
+    //**********To Setup Artist TagView *************
+
     func setUpArtistTagViewUI() {
-        artistTagView.textFont = UIConstant.Fonts.FONT_HELVETICA_REGULAR(14.0)
+        artistTagView.textFont = UIConstant.Fonts.FONT_HELVETICA_REGULAR(16.0)
         artistTagView.shadowRadius = 0
         artistTagView.shadowOpacity = 0
         artistTagView.cornerRadius = 5
@@ -205,6 +213,9 @@ class AlbumDetailViewController: UIViewController {
         artistTagView.delegate = self
     }
     
+    
+    //**********To Caleculate Artist TagViewHeight *************
+
     func calculateArtistTagViewHeight() {
         
         for (index,_) in self.tagListArray.enumerated() {
@@ -222,6 +233,8 @@ class AlbumDetailViewController: UIViewController {
         }
     }
     
+    
+    //**********To Show Artist Bio  *************
     
     func fillBioInfoView() {
         self.publishedDateLabel.setAttributedTextColor(leadingText: "Published : ", trailingText: self.artistInfo!.artist!.bio!.published!)
@@ -290,15 +303,21 @@ extension AlbumDetailViewController:UITableViewDelegate,UITableViewDataSource {
     }
 }
 
+// MARK:- TagView Delegate Methods
 
 extension AlbumDetailViewController:TagListViewDelegate {
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
         print(title)
         print(tagView.title)
+        let currentTag = self.tagListArray.filter{($0.name == title)}.first
+        if currentTag != nil {
+            UIApplication.shared.open((URL(string: currentTag!.url!))!, options: [:])
+        }
     }
 }
 
+// MARK:- TextView Delegate Methods
 
 extension AlbumDetailViewController:UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
